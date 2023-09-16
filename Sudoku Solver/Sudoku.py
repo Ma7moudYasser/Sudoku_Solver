@@ -66,10 +66,9 @@ class SudokuBoard:
         :return: bool.
         '''
         box_size = int(np.sqrt(self._board.shape[0]))
-        n_row = row // box_size
-        n_col = col // box_size
-        box = self._board[n_row: n_row + box_size, n_col: n_col + box_size].flatten()
-        print(box)
+        s_row = (row // box_size) * box_size
+        s_col = (col // box_size) * box_size
+        box = self._board[s_row: s_row + box_size, s_col: s_col + box_size].flatten()
         if num in box:
             return False
         else:
@@ -106,4 +105,4 @@ if __name__ == '__main__':
                             [4, 0, 2, 0, 0, 9, 0, 0, 5],
                             [0, 9, 0, 0, 7, 0, 4, 0, 2]
                             ])
-    print(board.board)
+    #print(board.board)
